@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Marvel Super Heros</string>
+    <string name="hero_name">Hero Name</string>
+    <string name="realname">Real Name</string>
+    <string name="team">Team</string>
+    <string name="firstappearance">First Appearance</string>
+    <string name="createdby">"Created By "</string>
+    <string name="publisher">Publisher</string>
+    <string name="bio">Bio</string>
+    <string name="name">Name</string>
+</resources>

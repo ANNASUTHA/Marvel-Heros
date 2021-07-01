@@ -1,0 +1,63 @@
+<resources>
+
+    <dimen name="activity_margin_half">8dp</dimen>
+    <dimen name="activity_horizontal_margin">15dp</dimen>
+    <dimen name="activity_margin">15sp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="base_margin">16dp</dimen>
+    <dimen name="base_margin_half">8dp</dimen>
+    <dimen name="table_width">100dp</dimen>
+    <dimen name="hunderten">110dp</dimen>
+    <dimen name="table_height">40dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="image_height">80dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="layoutheight">72dp</dimen>
+
+    <!--multiple images-->
+    <dimen name="recycler_view_left_offset">9dp</dimen>
+    <dimen name="card_width">148dp</dimen>
+
+    <dimen name="card_corner_radius">10dp</dimen>
+
+
+    <dimen name="layout_height">300dp</dimen>
+    <dimen name="margin">30dp</dimen>
+    <dimen name="db_margin">30dp</dimen>
+    <dimen name="margin_medium">30dp</dimen>
+    <dimen name="margin_large">30dp</dimen>
+    <dimen name="db_width">36dp</dimen>
+    <dimen name="min_margin">2dp</dimen>
+    <dimen name="doc_margin">5dp</dimen>
+    <dimen name="ins_recycler_height">400dp</dimen>
+    <dimen name="ins_recycler_margin">18dp</dimen>
+    <dimen name="calender_size">50dp</dimen>
+    <dimen name="grv_margin">-10dp</dimen>
+    <dimen name="medium_margin">12sp</dimen>
+    <dimen name="activity_height">120dp</dimen>
+    <dimen name="textsize_medium">16sp</dimen>
+    <dimen name="textsize_m">16sp</dimen>
+    <dimen name="textsize_med">12sp</dimen>
+    <dimen name="textsize_small">10sp</dimen>
+    <dimen name="textsize_s">10dp</dimen>
+    <dimen name="textsize_height">42dp</dimen>
+    <dimen name="activity_inverse_margin">-15dp</dimen>
+    <dimen name="textsize_large">24dp</dimen>
+    <dimen name="textsize_vlarge">32dp</dimen>
+    <dimen name="fab_mar">85dp</dimen>
+    <dimen name="peekheight">80dp</dimen>
+    <dimen name="text_l">18sp</dimen>
+    <dimen name="text_vl">25sp</dimen>
+    <dimen name="text_ml">20dp</dimen>
+    <dimen name="text_mml">20sp</dimen>
+    <dimen name="tiny">2sp</dimen>
+    <dimen name="_150dp">150dp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_40dp">40dp</dimen>
+    <dimen name="_56dp">56dp</dimen>
+    <dimen name="title_bar_text">20sp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="_24dp">24dp</dimen>
+</resources>
