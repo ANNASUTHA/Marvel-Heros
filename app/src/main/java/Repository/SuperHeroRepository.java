@@ -31,6 +31,7 @@ import java.util.Map;
 
 import DAO.SuperHeroDao;
 import Entity.SuperHeroEntity;
+import TrackRoom.TrackRoomDatabase;
 import Utils.Constant;
 import Utils.VolleySingleton;
 
@@ -41,28 +42,23 @@ public class SuperHeroRepository {
     private SuperHeroDao superHeroDao;
     private final int MY_SOCKET_TIMEOUT_MS = 30000;
     private RequestQueue mQueue;
-    private SuperHeroDao dao;
 
     public SuperHeroRepository(Application application) {
         mContext = application.getApplicationContext();
-        //TrackRoomDatabase db = TrackRoomDatabase.getDatabase(application);
-        //dao = db.rcBookListDao();
+        TrackRoomDatabase db = TrackRoomDatabase.getDatabase(application);
+        superHeroDao = db.superHeroDao();
         mQueue = VolleySingleton.getInstance(application).getRequestQueue();
     }
-    public LiveData<List<SuperHeroEntity>> fetchDataValue() {
+   /* public LiveData<List<SuperHeroEntity>> fetchDataValue() {
         return dao.fetchHeroDetails();
-    }
+    }*/
     public LiveData<List<SuperHeroEntity>> fetchData() {
         JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, Constant.ROOT_URL, new JSONObject(),
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            //date is stored as default format given in this pattern
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-                            //getting data and stored in this array
-                            JSONArray data = response.getJSONArray("data");
-                            Log.d("fetchRcBookData ", String.valueOf(data));
+                            JSONArray data = response.getJSONArray("");
                             SuperHeroEntity[] repArray = new SuperHeroEntity[data.length()];
                             for (int i = 0; i < data.length(); i++) {
                                 imageUrl = data.getJSONObject(i).getString("imageurl");
@@ -113,7 +109,6 @@ public class SuperHeroRepository {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         mQueue.add(req);
-
         return superHeroDao.fetchHeroDetails();
     }
 

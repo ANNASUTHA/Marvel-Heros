@@ -19,7 +19,7 @@ public class SuperHeroViewModel extends AndroidViewModel {
         repository =new SuperHeroRepository(application);
         }
     public LiveData<List<SuperHeroEntity>> fetchList(){
-        return repository.fetchDataValue();
+        return repository.fetchData();
     }
 
     public void deleteRC(){

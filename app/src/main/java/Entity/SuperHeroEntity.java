@@ -5,20 +5,25 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.Index;
+import androidx.room.PrimaryKey;
 
 import java.net.URI;
-@Entity(tableName = "Hero_Table", indices = {@Index(value = {"docID"},unique = true)})
+@Entity(tableName = "Hero_Table", indices = {@Index(value = {"realName"},unique = true)})
 public class SuperHeroEntity {
-    private String name;
     @NonNull
+    @PrimaryKey
     private String realName;
+    private String name;
     private String team;
     private String firstAppearance;
     private String createdBy;
     private String publisher;
     private String imageUrl;
     private String bio;
-  public SuperHeroEntity(String Name,   @NonNull String RealName, String Team, String FirstAppearance,
+    public SuperHeroEntity(){
+
+    }
+  public SuperHeroEntity(@NonNull String RealName,String Name,  String Team, String FirstAppearance,
                          String CreatedBy, String Publisher, String ImageUrl, String bio){
       this.name = Name;
       this.realName = RealName;

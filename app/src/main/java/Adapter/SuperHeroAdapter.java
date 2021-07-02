@@ -1,5 +1,6 @@
 package Adapter;
 
+import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +22,10 @@ import Entity.SuperHeroEntity;
 
 public class SuperHeroAdapter extends RecyclerView.Adapter<SuperHeroAdapter.SuperHeroViewHolder> {
     private final List<SuperHeroEntity> superHeroEntities;
-
-    public SuperHeroAdapter(List<SuperHeroEntity> superHeroEntities) {
+    Context context;
+    public SuperHeroAdapter(List<SuperHeroEntity> superHeroEntities, Context context) {
         this.superHeroEntities = superHeroEntities;
+        this.context = context;
     }
 
     @Override
