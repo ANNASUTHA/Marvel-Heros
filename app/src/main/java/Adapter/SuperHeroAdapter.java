@@ -23,9 +23,9 @@ import Entity.SuperHeroEntity;
 public class SuperHeroAdapter extends RecyclerView.Adapter<SuperHeroAdapter.SuperHeroViewHolder> {
     private final List<SuperHeroEntity> superHeroEntities;
     Context context;
-    public SuperHeroAdapter(List<SuperHeroEntity> superHeroEntities, Context context) {
+    public SuperHeroAdapter(List<SuperHeroEntity> superHeroEntities) {
         this.superHeroEntities = superHeroEntities;
-        this.context = context;
+        //this.context = context;
     }
 
     @Override

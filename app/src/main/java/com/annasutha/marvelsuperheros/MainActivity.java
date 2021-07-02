@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.LinearLayout;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -34,12 +37,14 @@ public class MainActivity extends AppCompatActivity {
     private SuperHeroRepository superHeroRepository;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        superHeroViewModel = ViewModelProviders.of(this).get(SuperHeroViewModel.class);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        /*if (savedInstanceState != null) {
+            //gameState = savedInstanceState.getString(GAME_STATE_KEY);
+        }*/
+        superHeroViewModel = ViewModelProviders.of(this).get(SuperHeroViewModel.class);
         TrackRoomDatabase db = TrackRoomDatabase.getDatabase(getApplicationContext());
         superHeroDao = db.superHeroDao();
-        setContentView(R.layout.activity_main);
         rootLinearLayout = findViewById(R.id.layout);
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Details");
@@ -47,14 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 = new ColorDrawable(Color.parseColor("#FF6200EE"));
         getSupportActionBar().setBackgroundDrawable(colorDrawable);
         superHeroEntityList = new ArrayList<>();
-        superHeroAdapter = new SuperHeroAdapter(superHeroEntityList,getApplicationContext());
+        superHeroAdapter = new SuperHeroAdapter(superHeroEntityList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerViewUsers.setLayoutManager(mLayoutManager);
         getDataFromServer();
         //initViews();
-
         //initObjects();
-        return;
     }
    /* private void initViews() {
         recyclerViewUsers = findViewById(R.id.recyclerViewUsers);
@@ -70,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }*/
 
     public void getDataFromServer() {
+
         superHeroViewModel.fetchList().observe(this, new Observer<List<SuperHeroEntity>>() {
             @Override
             public void onChanged(List<SuperHeroEntity> superHeroEntities) {
@@ -77,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                     superHeroEntityList.clear();
                     for (int i = 0; i < superHeroEntities.size(); i++) {
                         superHeroEntityList.add(superHeroEntities.get(i));
-                        superHeroAdapter = new SuperHeroAdapter(superHeroEntityList,getApplicationContext());
+                        superHeroAdapter = new SuperHeroAdapter(superHeroEntityList);
                         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
                         recyclerViewUsers.setLayoutManager(mLayoutManager);
                         recyclerViewUsers.setItemAnimator(new DefaultItemAnimator());

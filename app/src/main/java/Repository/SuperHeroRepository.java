@@ -42,7 +42,7 @@ public class SuperHeroRepository {
     private SuperHeroDao superHeroDao;
     private final int MY_SOCKET_TIMEOUT_MS = 30000;
     private RequestQueue mQueue;
-
+    Date date=java.util.Calendar.getInstance().getTime();
     public SuperHeroRepository(Application application) {
         mContext = application.getApplicationContext();
         TrackRoomDatabase db = TrackRoomDatabase.getDatabase(application);
@@ -53,7 +53,25 @@ public class SuperHeroRepository {
         return dao.fetchHeroDetails();
     }*/
     public LiveData<List<SuperHeroEntity>> fetchData() {
-        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, Constant.ROOT_URL, new JSONObject(),
+        JSONObject params = new JSONObject();
+        try {
+            params.put("Content-Type", "application/json");
+            params.put("Content-Encoding", "\tgzip");
+            params.put("Fastcgi-Cache", "HIT");
+            params.put("Date", date);
+            params.put("Server", "nginx");
+            params.put("Transfer-Encoding\t", "chunked");
+            params.put("Vary", "Accept-Encoding");
+            params.put("X-Content-Type-Options", "nosniff");
+            params.put("X-Frame-Options", "SAMEORIGIN");
+            params.put("X-Xss-Protection", "\t1; mode=block");
+            Log.d("PARAMS", String.valueOf(params));
+        }
+        catch(JSONException e){
+            e.printStackTrace();
+        }
+        String URL = "https://simplifiedcoding.net/demos/marvel/";
+        JsonObjectRequest req = new JsonObjectRequest(Request.Method.GET, URL, params,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
